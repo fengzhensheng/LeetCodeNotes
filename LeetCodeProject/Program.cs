@@ -6,6 +6,7 @@
         {
             //打印数组算法日志
             ArrayAlgorithmManager.ShowLog();
+            StringAlgorithmManager.ShowLog();
         }
     }
 }
