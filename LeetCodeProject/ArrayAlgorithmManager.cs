@@ -49,16 +49,33 @@ namespace LeetCodeProject
             return total;
         }
 
+        //136. 只出现一次的数字
+        //https://leetcode-cn.com/problems/single-number/
+        public static int SingleNumber(int[] nums)
+        {
+            int t = nums[0];
+            for(int i = 1; i < nums.Length; i++)
+            {
+                t ^= nums[i];
+            }
+            return t;
+        }
+
         public static void ShowLog()
         {
-            //26实例测试
+            //26. 删除排序数组中的重复项
             //int[] testArray = new int[] { 1, 2, 2, 3, 3, 3, 5 };
             //int arrayLen = RemoveDuplicates(testArray);
             //Console.WriteLine(arrayLen);
 
-            //127实例测试
+            //122. 买卖股票的最佳时机 II
             //int[] testArray = new int[] {1, 9, 6, 9, 1, 7, 1, 1, 5, 9, 9, 9};
             //int arrayLen = MaxProfit(testArray);
+            //Console.WriteLine(arrayLen);
+
+            //136. 只出现一次的数字
+            //int[] testArray = new int[] { 4, 1, 2, 1, 2 };
+            //int arrayLen = SingleNumber(testArray);
             //Console.WriteLine(arrayLen);
         }
     }
