@@ -1,10 +1,22 @@
 ﻿//数组管理类 这里将做一些数组相关的LeetCode算法题
 using System;
+using System.Text;
 
 namespace LeetCodeProject
 {
     public static class ArrayAlgorithmManager
     {
+        //打印数组
+        private static void PrintArray(int[] arr)
+        {
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < arr.Length; i++)
+            {
+                sb.Append(arr[i] + " ");
+            }
+            Console.WriteLine(sb.ToString());
+        }
+
         //26. 删除排序数组中的重复项
         //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
         /// <summary>
@@ -61,6 +73,34 @@ namespace LeetCodeProject
             return t;
         }
 
+        //189. 旋转数组
+        //https://leetcode-cn.com/problems/rotate-array/
+        /// <summary>
+        /// 这里做法是通过一个个替换的方式，直到走完一圈退出
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k"></param>
+        public static void Rotate(int[] nums, int k)
+        {
+            int len = nums.Length;
+            k %= len;
+            int count = 0;
+            for(int i= 0; count < len; i++)
+            {
+                int curIndex = i;
+                int curvalue = nums[curIndex];
+                do
+                {
+                    int next = (curIndex + k) % len;
+                    int temp = nums[next];
+                    nums[next] = curvalue;
+                    curvalue = temp;
+                    curIndex = next;
+                    count++;
+                } while (curIndex != i);
+            }
+        }
+
         public static void ShowLog()
         {
             //26. 删除排序数组中的重复项
@@ -77,6 +117,12 @@ namespace LeetCodeProject
             //int[] testArray = new int[] { 4, 1, 2, 1, 2 };
             //int arrayLen = SingleNumber(testArray);
             //Console.WriteLine(arrayLen);
+
+            //189. 旋转数组
+            //int[] testArray = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            //Rotate(testArray, 3);
+            //PrintArray(testArray);
+
         }
     }
 }
