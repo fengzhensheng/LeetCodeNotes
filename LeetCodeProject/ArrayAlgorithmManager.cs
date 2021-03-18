@@ -1,6 +1,7 @@
 ﻿//数组管理类 这里将做一些数组相关的LeetCode算法题
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace LeetCodeProject
 {
@@ -10,7 +11,7 @@ namespace LeetCodeProject
         private static void PrintArray(int[] arr)
         {
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 sb.Append(arr[i] + " ");
             }
@@ -66,7 +67,7 @@ namespace LeetCodeProject
         public static int SingleNumber(int[] nums)
         {
             int t = nums[0];
-            for(int i = 1; i < nums.Length; i++)
+            for (int i = 1; i < nums.Length; i++)
             {
                 t ^= nums[i];
             }
@@ -85,7 +86,7 @@ namespace LeetCodeProject
             int len = nums.Length;
             k %= len;
             int count = 0;
-            for(int i= 0; count < len; i++)
+            for (int i = 0; count < len; i++)
             {
                 int curIndex = i;
                 int curvalue = nums[curIndex];
@@ -99,6 +100,45 @@ namespace LeetCodeProject
                     count++;
                 } while (curIndex != i);
             }
+        }
+
+        //217. 存在重复元素
+        //https://leetcode-cn.com/problems/contains-duplicate/
+        /// <summary>
+        /// //先做排序 后做比较
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static bool ContainsDuplicate1(int[] nums)
+        {
+            if (nums.Length == 0 || nums.Length == 1)
+            {
+                return false;
+            }
+
+            Array.Sort(nums);
+            for(int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i].Equals(nums[i+ 1]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //用哈希集来做
+        public static bool ContainsDuplicate2(int[] nums)
+        {
+            HashSet<int> hashMap = new HashSet<int>();
+            for(int i = 0; i< nums.Length; i++)
+            {
+                if (!hashMap.Add(nums[i]))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static void ShowLog()
@@ -123,6 +163,10 @@ namespace LeetCodeProject
             //Rotate(testArray, 3);
             //PrintArray(testArray);
 
+            //217. 存在重复元素
+            //int[] testArray = new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
+            //Console.WriteLine(ContainsDuplicate1(testArray));
+            //Console.WriteLine(ContainsDuplicate2(testArray));
         }
     }
 }
