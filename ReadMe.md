@@ -13,3 +13,4 @@ C#
 * 136 只出现一次的数字 SingleNumber(int[] nums)
 * 125 验证回文串 IsPalindrome(string s)
 * 189 旋转数组 Rotate(int[] nums, int k)
+* 217 存在重复元素bool ContainsDuplicate(int[] nums)
