@@ -117,9 +117,9 @@ namespace LeetCodeProject
             }
 
             Array.Sort(nums);
-            for(int i = 0; i < nums.Length - 1; i++)
+            for (int i = 0; i < nums.Length - 1; i++)
             {
-                if (nums[i].Equals(nums[i+ 1]))
+                if (nums[i].Equals(nums[i + 1]))
                 {
                     return true;
                 }
@@ -131,7 +131,7 @@ namespace LeetCodeProject
         public static bool ContainsDuplicate2(int[] nums)
         {
             HashSet<int> hashMap = new HashSet<int>();
-            for(int i = 0; i< nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 if (!hashMap.Add(nums[i]))
                 {
@@ -140,6 +140,50 @@ namespace LeetCodeProject
             }
             return false;
         }
+
+        //350. 两个数组的交集 II
+        //https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+        /// <summary>
+        /// 双指针处理
+        /// </summary>
+        public static int[] Intersect(int[] nums1, int[] nums2)
+        {
+            List<int> finalList = new List<int>();
+            //判空处理
+            if (nums1 == null || nums1.Length == 0 || nums2 == null || nums2.Length == 0)
+            {
+                return finalList.ToArray();
+            }
+            Array.Sort(nums1);
+            Array.Sort(nums2);
+
+            //判断界限
+            if(nums1[0] > nums2[nums2.Length-1] || nums2[0] > nums1[nums1.Length - 1])
+            {
+                return finalList.ToArray();
+            }
+
+            int i = 0, j = 0;
+            while (i < nums1.Length && j < nums2.Length)
+            {
+                if(nums1[i] == nums2[j])
+                {
+                    finalList.Add(nums1[i]);
+                    i++;
+                    j++;
+                }
+                else if (nums1[i] < nums2[j])
+                {
+                    i++;
+                }
+                else if (nums1[i] > nums2[j])
+                {
+                    j++;
+                }
+            }
+            return finalList.ToArray();
+        }
+
 
         public static void ShowLog()
         {
@@ -167,6 +211,12 @@ namespace LeetCodeProject
             //int[] testArray = new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
             //Console.WriteLine(ContainsDuplicate1(testArray));
             //Console.WriteLine(ContainsDuplicate2(testArray));
+
+            //350. 两个数组的交集 II
+            //int[] test1Array = new int[] { 1, 2, 2, 1 };
+            //int[] test2Array = new int[] { 2, 2 };
+            //var finalArr = Intersect(test1Array, test2Array);
+            //PrintArray(finalArr);
         }
     }
 }
