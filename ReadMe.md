@@ -14,3 +14,4 @@ C#
 * 125 验证回文串 IsPalindrome(string s)
 * 189 旋转数组 Rotate(int[] nums, int k)
 * 217 存在重复元素bool ContainsDuplicate(int[] nums)
+* 350 两个数组的交集 II int[] Intersect(int[] nums1, int[] nums2)
