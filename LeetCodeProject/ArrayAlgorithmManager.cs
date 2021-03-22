@@ -184,6 +184,29 @@ namespace LeetCodeProject
             return finalList.ToArray();
         }
 
+        //66. 加一
+        //https://leetcode-cn.com/problems/plus-one/
+        /// <summary>
+        /// 使用数组本身进行求解 这里考虑从最后开始添加值
+        /// 添加时注意进位情况 输入[0,9]->[1,0];[9,9]->[1,0,0]
+        /// </summary>
+        public static int[] PlusOne(int[] digits)
+        {
+            for(int i = digits.Length - 1; i >= 0; i--)
+            {
+                if(digits[i] != 9)
+                {
+                    digits[i]++;
+                    return digits;
+                }
+                digits[i] = 0;
+            }
+            //走到这里证明数组值全为9 此时数组数据已全部赋值为0 所以构造一个新数组前面加个1即可
+            int[] newArr = new int[digits.Length + 1];
+            newArr[0] = 1;
+            return newArr;
+        }
+
 
         public static void ShowLog()
         {
@@ -217,6 +240,10 @@ namespace LeetCodeProject
             //int[] test2Array = new int[] { 2, 2 };
             //var finalArr = Intersect(test1Array, test2Array);
             //PrintArray(finalArr);
+
+            //66. 加一
+            //int[] testArr = new int[] { 9, 9, 9 };
+            //PrintArray(PlusOne(testArr));
         }
     }
 }
