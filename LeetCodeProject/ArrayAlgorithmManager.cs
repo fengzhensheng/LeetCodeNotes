@@ -226,6 +226,29 @@ namespace LeetCodeProject
             }
         }
 
+        // 27 移除元素
+        // https://leetcode-cn.com/problems/remove-element/
+        /// <summary>
+        /// 双指针
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static int RemoveElement(int[] nums, int val)
+        {
+            int changeCount = 0;
+            int lastIndex = nums.Length - 1;
+            for (int i = 0; i < nums.Length - changeCount; i++)
+            {
+                if (nums[i].Equals(val))
+                {
+                    nums[i] = nums[lastIndex - changeCount];
+                    changeCount++;
+                    i--;
+                }
+            }
+            return nums.Length - changeCount;
+        }
 
         public static void ShowLog()
         {
@@ -267,6 +290,11 @@ namespace LeetCodeProject
             //283. 移动零
             //int[] testArr = new int[] { 0,1,0,3,12 };
             //MoveZeroes(testArr);
+            //PrintArray(testArr);
+
+            // 27 移除元素
+            //int[] testArr = new int[] { 3, 2, 2, 3 };
+            //RemoveElement(testArr, 2);
             //PrintArray(testArr);
         }
     }
