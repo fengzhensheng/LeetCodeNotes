@@ -16,7 +16,8 @@ C#
 * 217 存在重复元素bool ContainsDuplicate(int[] nums)
 * 350 两个数组的交集 II int[] Intersect(int[] nums1, int[] nums2)
 * 66 加一 int[] PlusOne(int[] digits)
-* 283 移动零void MoveZeroes(int[] nums)
+* 283 移动零 void MoveZeroes(int[] nums)
+* 27 移除元素 int RemoveElement(int[] nums, int val)
 
 #### 字符串
 * 125 验证回文串 IsPalindrome(string s)
