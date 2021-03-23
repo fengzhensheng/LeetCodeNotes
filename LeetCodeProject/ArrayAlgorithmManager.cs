@@ -207,6 +207,25 @@ namespace LeetCodeProject
             return newArr;
         }
 
+        // 283. 移动零
+        // https://leetcode-cn.com/problems/move-zeroes/
+        /// <summary>
+        /// 双指针
+        /// </summary>
+        public static void MoveZeroes(int[] nums)
+        {
+            int left = 0, right = 0;
+            for(int i = 0; i < nums.Length; i++)
+            {
+                if(nums[i] != 0)
+                {
+                    (nums[left], nums[right]) = (nums[right], nums[left]);
+                    left++;
+                }
+                right++;
+            }
+        }
+
 
         public static void ShowLog()
         {
@@ -244,6 +263,11 @@ namespace LeetCodeProject
             //66. 加一
             //int[] testArr = new int[] { 9, 9, 9 };
             //PrintArray(PlusOne(testArr));
+
+            //283. 移动零
+            //int[] testArr = new int[] { 0,1,0,3,12 };
+            //MoveZeroes(testArr);
+            //PrintArray(testArr);
         }
     }
 }
