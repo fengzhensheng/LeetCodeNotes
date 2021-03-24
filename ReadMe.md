@@ -18,6 +18,7 @@ C#
 * 66 加一 int[] PlusOne(int[] digits)
 * 283 移动零 void MoveZeroes(int[] nums)
 * 27 移除元素 int RemoveElement(int[] nums, int val)
+* 1 两数之和 int[] TwoSum(int[] nums, int target)
 
 #### 字符串
 * 125 验证回文串 IsPalindrome(string s)

@@ -250,6 +250,31 @@ namespace LeetCodeProject
             return nums.Length - changeCount;
         }
 
+        // 1. 两数之和
+        // https://leetcode-cn.com/problems/two-sum/
+        /// <summary>
+        ///  使用哈希查表
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int[] TwoSum(int[] nums, int target)
+        {
+            Dictionary<int, int> hashMap = new Dictionary<int, int>(nums.Length - 1);
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int delta = target - nums[i];
+                if (hashMap.ContainsKey(delta))
+                {
+                    int otherKey = 0;
+                    hashMap.TryGetValue(delta, out otherKey);
+                    return new int[2] { otherKey, i };
+                }
+                hashMap.Add(nums[i], i);
+            }
+            return new int[2];
+        }
+
         public static void ShowLog()
         {
             //26. 删除排序数组中的重复项
@@ -296,6 +321,11 @@ namespace LeetCodeProject
             //int[] testArr = new int[] { 3, 2, 2, 3 };
             //RemoveElement(testArr, 2);
             //PrintArray(testArr);
+
+            // 1. 两数之和
+            //int[] testArr = new int[] { 3, 2, 4 };
+            //int[] finalArr = TwoSum(testArr, 6);
+            //PrintArray(finalArr);
         }
     }
 }
