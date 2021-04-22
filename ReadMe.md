@@ -19,6 +19,7 @@ C#
 * 283 移动零 void MoveZeroes(int[] nums)
 * 27 移除元素 int RemoveElement(int[] nums, int val)
 * 1 两数之和 int[] TwoSum(int[] nums, int target)
+* 344 反转字符串 void ReverseString(char[] s)
 
 #### 字符串
 * 125 验证回文串 IsPalindrome(string s)
